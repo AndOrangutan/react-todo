@@ -1,3 +1,5 @@
+import Button from './Button'
+
 // const Header = (props) => {
 //   return (
 //     <header>
@@ -7,10 +9,15 @@
 // }
 
 // Can also destructure props to directly acces title
-const Header = ({title}) => {
+const Header = ({ title, onAdd, onShowAddTask}) => {
+  const onClick = () => {
+    console.log('Clicked special button')
+  }
   return (
-    <header>
+    <header className='header'> 
       <h1>{title}</h1>
+      <Button color={ !onShowAddTask ?  'green' : 'red' } text={ !onShowAddTask ? 'Add' : 'close'} onClick={onAdd} />
+      
     </header>
   )
 }
